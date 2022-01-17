@@ -1,16 +1,16 @@
-/*Реализуйте класс Дробь. Необходимо хранить числитель
-и знаменатель в качестве переменных-членов. Реализуйте
-функции-члены для ввода данных в переменные-члены,
-для выполнения арифметических операций (сложение,
-вычитание, умножение, деление, и т.д.).*/
+п»ї/*Р РµР°Р»РёР·СѓР№С‚Рµ РєР»Р°СЃСЃ Р”СЂРѕР±СЊ. РќРµРѕР±С…РѕРґРёРјРѕ С…СЂР°РЅРёС‚СЊ С‡РёСЃР»РёС‚РµР»СЊ
+Рё Р·РЅР°РјРµРЅР°С‚РµР»СЊ РІ РєР°С‡РµСЃС‚РІРµ РїРµСЂРµРјРµРЅРЅС‹С…-С‡Р»РµРЅРѕРІ. Р РµР°Р»РёР·СѓР№С‚Рµ
+С„СѓРЅРєС†РёРё-С‡Р»РµРЅС‹ РґР»СЏ РІРІРѕРґР° РґР°РЅРЅС‹С… РІ РїРµСЂРµРјРµРЅРЅС‹Рµ-С‡Р»РµРЅС‹,
+РґР»СЏ РІС‹РїРѕР»РЅРµРЅРёСЏ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёС… РѕРїРµСЂР°С†РёР№ (СЃР»РѕР¶РµРЅРёРµ,
+РІС‹С‡РёС‚Р°РЅРёРµ, СѓРјРЅРѕР¶РµРЅРёРµ, РґРµР»РµРЅРёРµ, Рё С‚.Рґ.).*/
 #include<iostream>
 #include <conio.h>
    
-class Fraction // fraction - переводится как "фракция, доля, часть, дробь, частица, крупица"
+class Fraction // fraction - РїРµСЂРµРІРѕРґРёС‚СЃСЏ РєР°Рє "С„СЂР°РєС†РёСЏ, РґРѕР»СЏ, С‡Р°СЃС‚СЊ, РґСЂРѕР±СЊ, С‡Р°СЃС‚РёС†Р°, РєСЂСѓРїРёС†Р°"
 {
-	int numerator = -1; // numerator переводится как "числитель, нумератор, числитель дроби, счетчик, вычислитель"
+	int numerator = -1; // numerator РїРµСЂРµРІРѕРґРёС‚СЃСЏ РєР°Рє "С‡РёСЃР»РёС‚РµР»СЊ, РЅСѓРјРµСЂР°С‚РѕСЂ, С‡РёСЃР»РёС‚РµР»СЊ РґСЂРѕР±Рё, СЃС‡РµС‚С‡РёРє, РІС‹С‡РёСЃР»РёС‚РµР»СЊ"
 	
-	int denominator = -1; // denominator переводится как "знаменатель, делитель"
+	int denominator = -1; // denominator РїРµСЂРµРІРѕРґРёС‚СЃСЏ РєР°Рє "Р·РЅР°РјРµРЅР°С‚РµР»СЊ, РґРµР»РёС‚РµР»СЊ"
 	
 public:
 	Fraction() {};
@@ -19,19 +19,19 @@ public:
 		numerator = new_numerator;
 		denominator = new_denominator;
 	}
-	void  EnteringFractions()// -ввод дроби
+	void  EnteringFractions()// -РІРІРѕРґ РґСЂРѕР±Рё
 	{
 		std::cin >> numerator;
 		std::cout << "   /\n   ";
 		std::cin >> denominator;
 	};
-	void ShowFraction()// - показать дробь.
+	void ShowFraction()// - РїРѕРєР°Р·Р°С‚СЊ РґСЂРѕР±СЊ.
 	{
 		std::cout << "\n"<< numerator << "/" << denominator << "\n";
 	};
 	
-	Fraction Сompute(Fraction* fraction1, Fraction* fraction2, int selected_symbol)
-	{	  // compute - вычисление
+	Fraction РЎompute(Fraction* fraction1, Fraction* fraction2, int selected_symbol)
+	{	  // compute - РІС‹С‡РёСЃР»РµРЅРёРµ
 		Fraction result;
 		if (selected_symbol == 1)
 		{
@@ -61,17 +61,17 @@ int main()
 	Fraction new_fraction1;
 	Fraction new_fraction2;
 	
-	std::cout << "\n please enter the first fraction\n > ";//пожалуйста, введите первую дробь
+	std::cout << "\n please enter the first fraction\n > ";//РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ РґСЂРѕР±СЊ
 	new_fraction1.EnteringFractions();
 	std::cout << "\n ";
 	new_fraction1.ShowFraction();
 	
-	std::cout << "\n please enter the second fraction\n > ";//пожалуйста, введите вторую дробь
+	std::cout << "\n please enter the second fraction\n > ";//РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ РґСЂРѕР±СЊ
 	new_fraction2.EnteringFractions();
 	std::cout << "\n ";
 	new_fraction2.ShowFraction();
 	
-	std::cout << "\n select arithmetic sign\n (1 = +, 2 = -, 3 = *, 4 = /.) \n > ";//выберите арифметический знак
+	std::cout << "\n select arithmetic sign\n (1 = +, 2 = -, 3 = *, 4 = /.) \n > ";//РІС‹Р±РµСЂРёС‚Рµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёР№ Р·РЅР°Рє
 	int symbol = 0;
 	char ch_symbol = '.';
 	std::cin >> symbol;
@@ -91,13 +91,13 @@ int main()
 	new_fraction2.ShowFraction();
 	std::cout << " = ";
 	Fraction new_fraction3;
-	new_fraction3.Сompute(&new_fraction1, &new_fraction2, symbol).ShowFraction();
+	new_fraction3.РЎompute(&new_fraction1, &new_fraction2, symbol).ShowFraction();
 	
-	std::cout << "\n press any key to exit\n"; //нажмите любую клавишу, что бы выйти
+	std::cout << "\n press any key to exit\n"; //РЅР°Р¶РјРёС‚Рµ Р»СЋР±СѓСЋ РєР»Р°РІРёС€Сѓ, С‡С‚Рѕ Р±С‹ РІС‹Р№С‚Рё
 	std::cin.get();
 	std::cin.get();
 	
 	system("cls");
-	//system("pause"); можно использовать вместо последних 4 строк.
+	//system("pause"); РјРѕР¶РЅРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РІРјРµСЃС‚Рѕ РїРѕСЃР»РµРґРЅРёС… 4 СЃС‚СЂРѕРє.
 	return 0;
 }
