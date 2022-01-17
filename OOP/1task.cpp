@@ -9,9 +9,8 @@
 class Fraction // fraction - переводится как "фракция, доля, часть, дробь, частица, крупица"
 {
 	int numerator = -1; // numerator переводится как "числитель, нумератор, числитель дроби, счетчик, вычислитель"
-	
 	int denominator = -1; // denominator переводится как "знаменатель, делитель"
-	
+
 public:
 	Fraction() {};
 	Fraction(int new_numerator, int new_denominator)
@@ -19,12 +18,14 @@ public:
 		numerator = new_numerator;
 		denominator = new_denominator;
 	}
+
 	void  EnteringFractions()// -ввод дроби
 	{
 		std::cin >> numerator;
 		std::cout << "   /\n   ";
 		std::cin >> denominator;
 	};
+
 	void ShowFraction()// - показать дробь.
 	{
 		std::cout << "\n"<< numerator << "/" << denominator << "\n";
@@ -52,8 +53,6 @@ public:
 		}
 		return result;
 	}
-	
-	
 };
 
 int main()
@@ -84,7 +83,6 @@ int main()
 		ch_symbol = '*';
 	if (symbol == 4)
 		ch_symbol = '/';
-
 
 	new_fraction1.ShowFraction();
 	std::cout << (char)ch_symbol;
