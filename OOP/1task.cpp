@@ -4,48 +4,53 @@
 для выполнения арифметических операций (сложение,
 вычитание, умножение, деление, и т.д.).*/
 #include<iostream>
-class Drobi
+#include <conio.h>
+   
+class Fraction // fraction - переводится как "фракция, доля, часть, дробь, частица, крупица"
 {
-	int x, y;
+	int numerator = -1; // numerator переводится как "числитель, нумератор, числитель дроби, счетчик, вычислитель"
+	
+	int denominator = -1; // denominator переводится как "знаменатель, делитель"
 	
 public:
-	Drobi() {};
-	Drobi(int new_x, int new_y)
+	Fraction() {};
+	Fraction(int new_numerator, int new_denominator)
 	{
-		x = new_x;
-		y = new_y;
+		numerator = new_numerator;
+		denominator = new_denominator;
 	}
-	void  Enter_drob()
+	void  EnteringFractions()// -ввод дроби
 	{
-		std::cin >> x;
-		std::cin >> y;
+		std::cin >> numerator;
+		std::cout << "   /\n   ";
+		std::cin >> denominator;
 	};
-	void Print_drob()
+	void ShowFraction()// - показать дробь.
 	{
-		std::cout << x << "/" << y;
+		std::cout << "\n"<< numerator << "/" << denominator << "\n";
 	};
 	
-	Drobi Znaki(Drobi* nd1, Drobi* nd2, int entr_znak)
-	{
-		Drobi result_drob;
-		if (entr_znak == 1)
+	Fraction Сompute(Fraction* fraction1, Fraction* fraction2, int selected_symbol)
+	{	  // compute - вычисление
+		Fraction result;
+		if (selected_symbol == 1)
 		{
-			result_drob.x = (nd1->x * nd2->y)+(nd2->x*nd1->y);
-			result_drob.y = nd1->y * nd2->y;
-		}if (entr_znak==2)
+			result.numerator = (fraction1->numerator * fraction2->denominator)+(fraction2->numerator*fraction1->denominator);
+			result.denominator = fraction1->denominator * fraction2->denominator;
+		}if (selected_symbol==2)
 		{
-			result_drob.x = (nd1->x * nd2->y) - (nd2->x * nd1->y);
-			result_drob.y = nd1->y * nd2->y;
-		}if (entr_znak==3)
+			result.numerator = (fraction1->numerator * fraction2->denominator) - (fraction2->numerator * fraction1->denominator);
+			result.denominator = fraction1->denominator * fraction2->denominator;
+		}if (selected_symbol==3)
 		{
-			result_drob.x = nd1->x * nd2->x;
-			result_drob.y = nd1->y * nd2->y;
-		}if (entr_znak==4)
+			result.numerator = fraction1->numerator * fraction2->numerator;
+			result.denominator = fraction1->denominator * fraction2->denominator;
+		}if (selected_symbol==4)
 		{
-			result_drob.x = nd1->x * nd2->y;
-			result_drob.y = nd1->y * nd2->x;
+			result.numerator = fraction1->numerator * fraction2->denominator;
+			result.denominator = fraction1->denominator * fraction2->numerator;
 		}
-		return result_drob;
+		return result;
 	}
 	
 	
@@ -53,35 +58,46 @@ public:
 
 int main()
 {
-	int znak =0;
-	char znak_simbol = '.';
-	Drobi d1;
-	Drobi d2;
-	std::cout << "\npleas enter drob №1>\n>";
-	d1.Enter_drob();
-	d1.Print_drob();
-	std::cout << "\npleas enter drob №2>\n>";
-	d2.Enter_drob();
-	d2.Print_drob();
-	std::cout << "\ngo to arifmetik znak(1 = +, 2 = -, 3 = *, 4 = /.) >\n";
-	std::cin >> znak;
-	if (znak == 1)
-		znak_simbol = '+';
-	if (znak == 2)
-		znak_simbol = '-';
-	if (znak == 3)
-		znak_simbol = '*';
-	if (znak == 4)
-		znak_simbol = '/';
-
-
-	d1.Print_drob();
-	std::cout << (char)znak_simbol;
-	d2.Print_drob();
-	std::cout << " = ";
-	Drobi d3;
-	d3.Znaki(&d1, &d2, znak).Print_drob();
-	//d3.Print_drob();
+	Fraction new_fraction1;
+	Fraction new_fraction2;
 	
+	std::cout << "\n please enter the first fraction\n > ";//пожалуйста, введите первую дробь
+	new_fraction1.EnteringFractions();
+	std::cout << "\n ";
+	new_fraction1.ShowFraction();
+	
+	std::cout << "\n please enter the second fraction\n > ";//пожалуйста, введите вторую дробь
+	new_fraction2.EnteringFractions();
+	std::cout << "\n ";
+	new_fraction2.ShowFraction();
+	
+	std::cout << "\n select arithmetic sign\n (1 = +, 2 = -, 3 = *, 4 = /.) \n > ";//выберите арифметический знак
+	int symbol = 0;
+	char ch_symbol = '.';
+	std::cin >> symbol;
+	
+	if (symbol == 1)
+		ch_symbol = '+';
+	if (symbol == 2)
+		ch_symbol = '-';
+	if (symbol == 3)
+		ch_symbol = '*';
+	if (symbol == 4)
+		ch_symbol = '/';
 
+
+	new_fraction1.ShowFraction();
+	std::cout << (char)ch_symbol;
+	new_fraction2.ShowFraction();
+	std::cout << " = ";
+	Fraction new_fraction3;
+	new_fraction3.Сompute(&new_fraction1, &new_fraction2, symbol).ShowFraction();
+	
+	std::cout << "\n press any key to exit\n"; //нажмите любую клавишу, что бы выйти
+	std::cin.get();
+	std::cin.get();
+	
+	system("cls");
+	//system("pause"); можно использовать вместо последних 4 строк.
+	return 0;
 }
