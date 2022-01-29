@@ -23,6 +23,7 @@ class House //“Дом”
 
 public:
 
+
 	House()
 	{
 		floors = 5;
