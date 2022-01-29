@@ -1,33 +1,33 @@
-/*
-Задание 1.
-Создайте класс Дробь(или используйте уже ранее созданный вами).Используя перегрузку операторов реализуйте
-для него арифметические операции для работы с дробями
-(операции + , -, *, / ).*/
+п»ї/*
+Р—Р°РґР°РЅРёРµ 1.
+РЎРѕР·РґР°Р№С‚Рµ РєР»Р°СЃСЃ Р”СЂРѕР±СЊ(РёР»Рё РёСЃРїРѕР»СЊР·СѓР№С‚Рµ СѓР¶Рµ СЂР°РЅРµРµ СЃРѕР·РґР°РЅРЅС‹Р№ РІР°РјРё).РСЃРїРѕР»СЊР·СѓСЏ РїРµСЂРµРіСЂСѓР·РєСѓ РѕРїРµСЂР°С‚РѕСЂРѕРІ СЂРµР°Р»РёР·СѓР№С‚Рµ
+РґР»СЏ РЅРµРіРѕ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёРµ РѕРїРµСЂР°С†РёРё РґР»СЏ СЂР°Р±РѕС‚С‹ СЃ РґСЂРѕР±СЏРјРё
+(РѕРїРµСЂР°С†РёРё + , -, *, / ).*/
 
 
 #include<iostream>
 
-class Fraction // дробь
+class Fraction // РґСЂРѕР±СЊ
 {
-	int numerator;		// числитель
-	int denominator;	// знаменатель
+	int numerator;		// С‡РёСЃР»РёС‚РµР»СЊ
+	int denominator;	// Р·РЅР°РјРµРЅР°С‚РµР»СЊ
 
 public:
 	Fraction() :numerator(1), denominator(1) {};
 
-	void  EnteringFractions()// -ввод дроби
+	void  EnteringFractions()// -РІРІРѕРґ РґСЂРѕР±Рё
 	{
 		std::cin >> numerator;
 		std::cout << "   /\n   ";
 		std::cin >> denominator;
 	};
 
-	void ShowFraction()// - вывод дроби
+	void ShowFraction()// - РІС‹РІРѕРґ РґСЂРѕР±Рё
 	{
 		std::cout << "\n" << numerator << "/" << denominator << "\n";
 	};
 	friend Fraction& operator+(Fraction const& value1, Fraction const& value2);
-	friend Fraction& operator-(Fraction const& value1, Fraction const& value2);  //перегрузка.
+	friend Fraction& operator-(Fraction const& value1, Fraction const& value2);  //РїРµСЂРµРіСЂСѓР·РєР°.
 	friend Fraction& operator*(Fraction const& value1, Fraction const& value2);
 	friend Fraction& operator/(Fraction const& value1, Fraction const& value2);
 };
@@ -38,17 +38,17 @@ int main()
 	Fraction new_fraction1;
 	Fraction new_fraction2;
 
-	std::cout << "\n please enter the first fraction\n > ";//пожалуйста, введите первую дробь
+	std::cout << "\n please enter the first fraction\n > ";//РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РїРµСЂРІСѓСЋ РґСЂРѕР±СЊ
 	new_fraction1.EnteringFractions();
 	std::cout << "\n ";
 	new_fraction1.ShowFraction();
 
-	std::cout << "\n please enter the second fraction\n > ";//пожалуйста, введите вторую дробь
+	std::cout << "\n please enter the second fraction\n > ";//РїРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ РІС‚РѕСЂСѓСЋ РґСЂРѕР±СЊ
 	new_fraction2.EnteringFractions();
 	std::cout << "\n ";
 	new_fraction2.ShowFraction();
 
-	std::cout << "\n select arithmetic sign\n (1 = +, 2 = -, 3 = *, 4 = /.) \n > ";//выберите арифметический знак
+	std::cout << "\n select arithmetic sign\n (1 = +, 2 = -, 3 = *, 4 = /.) \n > ";//РІС‹Р±РµСЂРёС‚Рµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРёР№ Р·РЅР°Рє
 	int symbol = 0;
 	char ch_symbol = '.';
 	std::cin >> symbol;
@@ -62,8 +62,8 @@ int main()
 	if (symbol == 4)
 		std::cout << (new_fraction1 / new_fraction2);*/
 
-	// не смог победить. решил вынести значения первоначальные в паблик.
-	// но это не красиво. в общем, с раъименованием надо покавыряться, но я не смог.
+	// РЅРµ СЃРјРѕРі РїРѕР±РµРґРёС‚СЊ. СЂРµС€РёР» РІС‹РЅРµСЃС‚Рё Р·РЅР°С‡РµРЅРёСЏ РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅС‹Рµ РІ РїР°Р±Р»РёРє.
+	// РЅРѕ СЌС‚Рѕ РЅРµ РєСЂР°СЃРёРІРѕ. РІ РѕР±С‰РµРј, СЃ СЂР°СЉРёРјРµРЅРѕРІР°РЅРёРµРј РЅР°РґРѕ РїРѕРєР°РІС‹СЂСЏС‚СЊСЃСЏ, РЅРѕ СЏ РЅРµ СЃРјРѕРі.
 
 	if (symbol == 1)
 		std::cout << &(new_fraction1 + new_fraction2);
@@ -74,8 +74,8 @@ int main()
 	if (symbol == 4)
 		std::cout << &(new_fraction1 / new_fraction2);
 
-	// рак выдает адрес.
-	// я не округлял, до целого. но замечание помню ваше в предыдущей домашке.
+	// СЂР°Рє РІС‹РґР°РµС‚ Р°РґСЂРµСЃ.
+	// СЏ РЅРµ РѕРєСЂСѓРіР»СЏР», РґРѕ С†РµР»РѕРіРѕ. РЅРѕ Р·Р°РјРµС‡Р°РЅРёРµ РїРѕРјРЅСЋ РІР°С€Рµ РІ РїСЂРµРґС‹РґСѓС‰РµР№ РґРѕРјР°С€РєРµ.
 
 	
 	system("pause");
